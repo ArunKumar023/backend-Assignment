@@ -11,6 +11,11 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+// Basic route to check if server is running
+app.get('/', (req, res) => {
+  res.send('Backend Server is running successfully!');
+});
+
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/control_panel')
   .then(() => console.log('Connected to MongoDB'))
